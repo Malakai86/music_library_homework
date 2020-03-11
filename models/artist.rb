@@ -11,11 +11,11 @@ def initialize(options)
   @artist_name = options['artist_name']
 end
 
-def artists()
-  sql = "SELECT * FROM artists WHERE artist_id = $1"
+def albums()
+  sql = "SELECT * FROM albums WHERE artist_id = $1"
   values = [@id]
   album_hashes = SqlRunner.run(sql, values)
-  album_objects = album_hashes.map { |album_hash| Album.new(album_hash) }
+  albums = album_hashes.map { |album_hash| Album.new(album_hash) }
   return albums
 end
 
